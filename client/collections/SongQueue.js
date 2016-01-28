@@ -17,7 +17,8 @@ var SongQueue = Songs.extend({
       -move following item to top of list
     
   */
-  initialize: function(){
+  initialize: function(params){
+
     this.on('add', function(song) {
       // If first song....
       if(this.indexOf(song) === 0){
@@ -33,6 +34,10 @@ var SongQueue = Songs.extend({
       }
       
     }); 
+
+    this.on('dequeue', function(song) {
+      this.remove(song);
+    });
 
   }, 
 

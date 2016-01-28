@@ -20,6 +20,7 @@ var AppModel = Backbone.Model.extend({
     params.library.on('enqueue', function(song){
       // add song to Queue
       // tell queue to add song
+      // Gets songQueue we instantiated on line 6.  Adds the song to it.
       this.get('songQueue').add(song);
     }, this);
   }
@@ -29,7 +30,7 @@ var AppModel = Backbone.Model.extend({
 
 /*
 
-  AppModel ha
+  var appModel =
   { currentSong: this is a SongModel Object
     songQueue: this is a SongQueue Object.  A SongQueue Object is a subclass of Songs.  Songs is a collection of SongModels
     library: this is a Songs object.  Songs is a collection of SongModels

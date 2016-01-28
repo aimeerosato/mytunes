@@ -18,6 +18,32 @@ var SongQueue = Songs.extend({
     
   */
   initialize: function(){
+    this.on('add', function(song) {
+      // If first song....
+      if(this.indexOf(song) === 0){
+        // then play song
+        this.playFirst();
+      } 
+    }, this);
+
+    this.on('ended', function() {
+      this.shift();
+      if(this.get(0) !== undefined){
+        this.playFirst();
+      }
+      
+    }); 
+
+  }, 
+
+  playFirst: function() {
+    if(this.get(0) !== undefined){
+      this.get(0).play();
+    }
   }
+
+  
+
+  //where we get information from?
 
 });
